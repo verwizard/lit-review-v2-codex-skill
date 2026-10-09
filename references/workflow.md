@@ -10,6 +10,7 @@ Capture these fields before searching:
 - technical focus or a request to infer routes from the candidate set;
 - inclusion and exclusion criteria;
 - search mode (`targeted` by default);
+- output format and optional project location;
 - supplied PDFs, DOI records, or seed references.
 
 The default mode is a targeted evidence review. Record the source of every candidate family and a practical stopping rule. Do not report a fabricated total hit count when a search engine or venue page does not expose one.
@@ -55,6 +56,8 @@ Focus: [focus, or infer the main technical routes]
 Inclusion: directly relevant, clear method, empirical result
 Exclusion: review/commentary, duplicate, weakly related, no verifiable result
 Search mode: targeted
+Output format: Markdown
+Project location: [optional; defaults to the current workspace]
 
 Build the candidate set and source log, run two-stage screening, fill the evidence table for kept papers, mark partial evidence with verified/not_verified, record evidence locators, synthesize routes and conflicts, register claims, write the numbered draft, and run review lint. Do not present the result as a systematic review.
 ```
@@ -62,4 +65,3 @@ Build the candidate set and source log, run two-stage screening, fill the eviden
 ## Publication-ready pass
 
 After the evidence-backed draft is complete, a separate editing pass can add a formal title, abstract, keywords, consistent headings, complete references, and a required citation style. It must preserve the reference map and must not add conclusions unsupported by the evidence table or claim registry.
-
