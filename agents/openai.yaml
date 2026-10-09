@@ -1,4 +1,4 @@
 interface:
   display_name: "Lit Review v2"
   short_description: "Evidence-traceable targeted literature reviews"
-  default_prompt: "Use $lit-review-v2 to build a traceable targeted literature review from my topic or papers."
+  default_prompt: "Use $lit-review-v2 to build a traceable targeted literature review, asking me for any missing topic, date range, screening, or output requirements first."
