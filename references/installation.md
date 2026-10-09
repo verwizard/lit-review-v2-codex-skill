@@ -12,6 +12,14 @@ Copy the entire `lit-review-v2` folder into your user Skill directory, so the re
 
 When using the installable ZIP, extract its contents into a folder named `lit-review-v2` before copying or loading it. The archive contains the Skill files at its root for compatibility with direct folder copies.
 
+With GitHub SSH, an equivalent PowerShell installation is:
+
+```powershell
+git clone git@github.com:verwizard/lit-review-v2-codex-skill.git "$env:USERPROFILE\.codex\skills\lit-review-v2"
+```
+
+The Skill installation directory and each generated review project are separate directories.
+
 Open a new Codex chat or refresh the app's Skill list after copying. Invoke with `$lit-review-v2`.
 
 ## Script commands
@@ -24,7 +32,7 @@ python .\scripts\init_review_project.py --output "D:\review-project" --topic "yo
 
 The topic, year range, cutoff date, document types and screening criteria come from the current review request; the values above are placeholders, not fixed Skill settings. Replace `D:\review-project` with the local directory where the review project should be stored.
 
-Run structural and citation lint after filling the project:
+When you use `$lit-review-v2` normally, Codex runs the initializer and lint for you. Run the following command only when you want to manage a project manually:
 
 ```powershell
 python .\scripts\review_lint.py "D:\review-project"

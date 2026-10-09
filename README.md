@@ -16,6 +16,20 @@
 
 `%USERPROFILE%` 表示 Windows 当前用户目录，例如 `C:\Users\你的用户名`。安装后重新打开 Codex 或刷新 Skill 列表。
 
+如果你使用 GitHub SSH，可以在 PowerShell 中一次性安装：
+
+```powershell
+git clone git@github.com:verwizard/lit-review-v2-codex-skill.git "$env:USERPROFILE\.codex\skills\lit-review-v2"
+```
+
+以后更新 Skill 时运行：
+
+```powershell
+git -C "$env:USERPROFILE\.codex\skills\lit-review-v2" pull
+```
+
+这个安装目录只存放通用 Skill。每次综述产生的 `review_draft.md`、CSV 和 lint 报告属于独立的综述项目目录。
+
 ### 2. 在 Codex 中描述你的综述需求
 
 你可以直接输入：
@@ -29,9 +43,10 @@
 已有 PDF、DOI 或参考文献：[有就提供，没有写“暂无”]
 纳入和排除标准：[可选]
 输出格式：Markdown
+保存位置：[可选；不填写时使用当前工作区]
 ```
 
-如果信息不完整，Skill 会询问主题、时间范围、文献类型、重点方向、筛选标准和输出格式。示例中的方括号是等待你填写的内容，不是固定参数。
+如果信息不完整，Skill 会询问主题、时间范围、文献类型、重点方向、筛选标准和输出格式。保存位置可以由你指定；不指定时，Codex 会在当前工作区下创建一个按主题命名的综述项目，并告诉你实际路径。示例中的方括号是等待你填写的内容，不是固定参数。
 
 ## 最后会得到什么
 
@@ -71,6 +86,8 @@ Codex 会新建一个独立的综述项目文件夹。普通用户建议先看�
 
 ## 可选：手动运行脚本
 
+正常调用 `$lit-review-v2` 时，Codex 会自动创建综述项目并运行这些脚本，你不需要手动替换路径或执行 lint。下面的命令只适用于你希望自己在 PowerShell 中管理项目的情况。
+
 需要自己创建项目目录时，可使用 Python 3.10 或更高版本：
 
 ```powershell
@@ -82,7 +99,7 @@ python .\scripts\init_review_project.py `
   --cutoff-date <YYYY-MM-DD>
 ```
 
-`D:\review-project` 是示例输出位置，需要替换为自己的目录。填写项目内容后运行：
+`D:\review-project` 是手动操作时的示例路径，需要替换成实际综述项目目录。填写项目内容后再运行：
 
 ```powershell
 python .\scripts\review_lint.py "D:\review-project"

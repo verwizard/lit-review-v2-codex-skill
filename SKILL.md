@@ -22,7 +22,7 @@ Invoke explicitly as `$lit-review-v2`. The older phrase `$lit-review v2` is the 
 
 ## Workflow
 
-1. Define the topic, years, document types, focus, inclusion criteria, exclusion criteria, search mode, cutoff date, and output format. If required scope information is missing, ask the user concise questions before starting the file-backed review. If the user supplies PDFs, DOI records, or a reference list, treat them as the seed candidate set.
+1. Define the topic, years, document types, focus, inclusion criteria, exclusion criteria, search mode, cutoff date, output format, and project location. If required scope information is missing, ask the user concise questions before starting the file-backed review. If the user does not specify a project location, create the project under the current workspace using a topic-derived directory name and tell the user where it was created. If the user supplies PDFs, DOI records, or a reference list, treat them as the seed candidate set.
 2. Create or update the project with `scripts/init_review_project.py` when a file-backed project is useful. Record candidate provenance and every search/update family in `search_log.csv`.
 3. Run Pass A for topical relevance and a minimum evidence requirement. Run Pass B for document type, method clarity, experimental results, duplicate/version relations, and evidence availability. Preserve a reason for every exclusion in `screening.csv`.
 4. Read each kept paper far enough to fill `evidence_table.csv`: dataset, method, comparators, outcomes, key findings, limitations, review relevance, evidence strength, direction, checked content, and an `evidence_locator` such as `p. 6, Table 3`.
