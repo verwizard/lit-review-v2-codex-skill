@@ -133,7 +133,9 @@ def main(argv: list[str] | None = None) -> int:
     for row in evidence:
         if cell(row, "evidence_strength") == "partial":
             checked = cell(row, "evidence_checked").lower()
-            if "verified" not in checked or "not_verified" not in checked:
+            has_verified = bool(re.search(r"(?<!not_)\bverified\s*:", checked))
+            has_not_verified = bool(re.search(r"\bnot_verified\s*:", checked))
+            if not has_verified or not has_not_verified:
                 issues.append({"severity": "warning", "file": "evidence_table.csv", "message": f"{cell(row, 'record_id')} partial evidence should separate verified and not_verified"})
         if not cell(row, "evidence_locator"):
             issues.append({"severity": "warning", "file": "evidence_table.csv", "message": f"{cell(row, 'record_id')} has no evidence_locator"})

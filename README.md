@@ -64,7 +64,7 @@ Codex 会新建一个独立的综述项目文件夹。普通用户建议先看�
 - `scripts/review_lint.py`：检查项目结构、编号引用和表格关系。
 - `scripts/schema.py`：定义各个 CSV 文件的字段。
 - `references/`：详细工作流、字段说明和安装说明。
-- `examples/`：完整示例项目，可用于了解产物结构。
+- `tests/`：使用通用 fixture 的自动化测试，不依赖具体研究主题。
 - `requirements.txt`：运行环境说明；当前脚本只使用 Python 标准库。
 
 通常不需要手动修改 `SKILL.md`、`scripts/` 或 `references/`，也不需要自己填写所有 CSV。正常做法是在 Codex 中调用 `$lit-review-v2`，让它完成工作并返回综述项目。
@@ -87,6 +87,14 @@ python .\scripts\init_review_project.py `
 ```powershell
 python .\scripts\review_lint.py "D:\review-project"
 ```
+
+运行 Skill 自带的自动化测试：
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+测试使用临时目录，不会修改你的实际综述项目。
 
 ## 证据边界
 

@@ -31,5 +31,3 @@ python .\scripts\review_lint.py "D:\review-project"
 ```
 
 The lint script writes `review_lint_report.json` in the project. It checks schemas, row relationships, reference mapping, citations, and selected evidence annotations. It cannot verify whether a paper's factual result, citation metadata, or evidence locator is true; those require source inspection.
-
-The bundled ZIP in `examples/` is an existing audio-review project. It is a sample output, not an additional Skill or a script dependency.
